@@ -1,14 +1,15 @@
 .footer {
-  background: white;
+  background: #383838;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 80px;
-  color: rgba(0,0,0,0.3);
-  position: fixed;
+  color: white;
+  /*color: rgba(0,0,0,0.3);*/
   left: 0;
-  bottom: 0;
   width: 100%;
+  margin-top: 50px;
+  padding-left: 100px;
 
 }
 
@@ -27,5 +28,5 @@
   opacity: 1;
 }
 .footer .fa-van-shuttle {
-  color: #D23333;
+  color: #f73013;
 }
