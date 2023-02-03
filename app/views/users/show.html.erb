@@ -1,0 +1,20 @@
+
+<div class="container mt-5 d-flex flex-row justify-content-around">
+  <div>
+    <h3>Minhas ferramentas:</h3>
+    <ul>
+      <% @user.tools.each do |tool|%>
+        <li><%= tool.name%></li>
+      <%end%>
+    </ul>
+  </div>
+  <div>
+    <h3>Meus aluguéis:</h3>
+    <ul>
+    <% @user.rents.each do |rent|%>
+      <% next if rent.date_end < Date.today %>
+      <li><%= "#{rent.tool.name} (de: #{rent.date_start} até: #{rent.date_end})" %></li>
+    <%end%>
+    </ul>
+  </div>
+</div>
