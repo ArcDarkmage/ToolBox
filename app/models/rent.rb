@@ -5,6 +5,8 @@ class Rent < ApplicationRecord
   validate :date_start_and_date_end
   validate :available
 
+  # validação para verificar se a data inicial é menor do que a data de hoje
+  # e para verificar se a data final é menor do que a data de início"
   def date_start_and_date_end
     if date_start < Date.today
       errors.add(:date_start, "Data de início inválida")
@@ -13,6 +15,8 @@ class Rent < ApplicationRecord
     end
   end
 
+  # verifica se as datas escolhidas estão disponíveis
+  # se date_start ou date_end já não estão em algum range de aluguéis já existentes
   def available
     tool = Tool.find(tool_id)
     rents = tool.rents

@@ -10,6 +10,8 @@
                 order: [:day, :month, :year],
                 required: true,
                 autofocus: true,
+                # este error mostra a primeira mensagem de erro na listagem de
+                # validação dos erros (se não for assim acaba indo coisa a mais)
                 error: @rent.errors.messages[:date_start].first,
                 label: "Data do empréstimo" %>
     <%= f.input :date_end,
