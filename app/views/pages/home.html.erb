@@ -2,8 +2,9 @@
   <div class="container">
     <h1>Encontre a ferramenta que você precisa!</h1>
     <p>Ou empreste as suas ferramentas.</p>
-
-   <%= link_to "Cadastre-se", "#", class: "btn btn-ghost" %>
+    <% unless current_user %>
+      <%= link_to "Cadastre-se", new_user_registration_path, class: "btn btn-ghost" %>
+    <% end %>
   </div>
 </div>
 
