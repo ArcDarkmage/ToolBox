@@ -1,0 +1,8 @@
+<h1><%= @tool.name %></h1>
+<h2> Cadastrada por: <%= @tool.user.name %></h2>
+<p><<%= @tool.details %></p>
+<% if current_user = @tool.user %>
+<%= link_to "Editar informações", edit_tool_path %>
+<<%= link_to "Deletar", tool_path(@tool),
+  data: {turbo_method: :delete, turbo_confirm: "Você confirma essa ação?"}
+%>>
