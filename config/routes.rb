@@ -6,32 +6,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  resources :tools, except: [:index] do
+    resources :rents
+  end
 
   resources :profiles, only: [:show]
-
 end
