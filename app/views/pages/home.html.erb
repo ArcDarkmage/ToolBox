@@ -13,9 +13,9 @@
 
 
 <div class="cards">
-
-
+  <% @tools.each do |tool|%>
     <div class="card-trip">
+<!-- a partir daqui conflito -->
      <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcPalH90DW4IXgolSN5ikKCKDuq2g80ds6ZOUwVQ8W-HognQVTNFcLoMqupAXInI7lv8c&usqp=CAU", class: "", alt: "avatar" %>
      <div class="card-trip-infos">
         <div>
@@ -87,4 +87,12 @@
   -->
 
 
+
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://m.media-amazon.com/images/I/51rP6L10GKL._AC_SX569_.jpg)">
+          <p style="text-align: center"> <%= link_to tool.name, tool_path(tool), class: "text-decoration-none text-reset" %>
+          <br><span style="font-size: 14px"><%="R$ #{tool.price_cents / 100},00"%></span></p>
+        </div>
+    </div>
+  <% end %>
+<!-- até aqui -->
 </div>
