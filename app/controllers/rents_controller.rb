@@ -13,7 +13,7 @@ class RentsController < ApplicationController
     authorize @rent
     if @rent.save
       # por enquanto está indo para a página inicial. Alterar depois.
-      redirect_to root_path
+      redirect_to profile_path(current_user)
     else
       render :new, status: :unprocessable_entity
     end

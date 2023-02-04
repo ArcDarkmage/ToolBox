@@ -26,6 +26,6 @@ Rails.application.routes.draw do
 
 
   resources :tools, except: [:index] do
-    resources :rents
+    resources :rents, only: %i[new create]
   end
 end
