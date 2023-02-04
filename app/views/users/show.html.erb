@@ -5,7 +5,18 @@
       <h3>Minhas ferramentas:</h3>
       <ul>
         <% @user.tools.each do |tool|%>
-          <li><%= tool.name%></li>
+          <li>
+            <!--Incluir link para detalhes da ferramenta-->
+            <%= tool.name %>
+            <!--Alterar root_path para tool_path-->
+            <%= link_to root_path do %>
+              <i class="fa-regular fa-trash-can"></i>
+            <% end %>
+            <!--Alterar root_path para tool_path-->
+            <%= link_to root_path do %>
+              <i class="fa-regular fa-pen-to-square"></i>
+            <% end %>
+          </li>
         <%end%>
       </ul>
     </div>
@@ -15,7 +26,7 @@
     <ul>
     <% @user.rents.each do |rent|%>
       <% next if rent.date_end < Date.today %>
-      <li><%= "#{rent.tool.name} (de: #{rent.date_start} até: #{rent.date_end})" %></li>
+      <li><%= "#{rent.tool.name} #{rent.date_start.strftime("(de: %d/%m/%Y")} #{rent.date_end.strftime(" até: %d/%m/%Y)")}" %></li>
     <%end%>
     </ul>
   </div>
