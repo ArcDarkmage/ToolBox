@@ -5,4 +5,28 @@ class ToolPolicy < ApplicationPolicy
     #   scope.all
     # end
   end
+
+  def show?
+    true
+  end
+
+  def new?
+    true
+  end
+
+  def edit?
+    record.user == user
+  end
+
+  def destroy?
+    record.user == user
+  end
+
+  def update?
+    edit?
+  end
+
+  def create?
+    new?
+  end
 end

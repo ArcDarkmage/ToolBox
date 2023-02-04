@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+# clear all tools data
+Tool.destroy_all
+
 # clear all user data
 User.destroy_all
 
@@ -42,9 +45,6 @@ cedric = User.create!(
   email: 'cedricwamba@gmail.com',
   password: '123456'
 )
-
-# clear all tools data
-Tool.destroy_all
 
 puts 'Creating tools'
 
