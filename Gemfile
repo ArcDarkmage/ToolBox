@@ -51,6 +51,9 @@ gem "sassc-rails"
 # Use Devise for Authentication features
 gem "devise"
 
+# PG Search for search engine
+gem 'pg_search'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
