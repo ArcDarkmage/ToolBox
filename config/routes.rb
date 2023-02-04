@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :tools do
+  resources :tools, except: [:index] do
     resources :rents
   end
 end
