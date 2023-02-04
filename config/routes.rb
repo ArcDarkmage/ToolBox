@@ -8,24 +8,9 @@ Rails.application.routes.draw do
   # root "articles#index"
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   resources :profiles, only: [:show]
 
-
-  resources :tools, except: [:index] do
+  resources :tools do
     resources :rents, only: %i[new create]
   end
 end
