@@ -59,11 +59,63 @@ p.recentes {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
 
 
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.cards {
+  height: 350px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 35px;
+}
+
+p.card-trip-pricing{
+  font-size: 1em;
+  font-weight: bold;
+  color: #f73013;
+  position: relative;
+  top: 20px;
+
+}
+
+h3.title-tool{
+  font-size: 1em;
+  font-weight: bold;
+}
 
 
-
+/*
 .card-category {
   background-size: cover;
   background-position: center;
@@ -80,11 +132,7 @@ p.recentes {
 }
 
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 35px;
-}
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
@@ -120,3 +168,4 @@ p.recentes {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
+*/
