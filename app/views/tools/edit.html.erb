@@ -4,15 +4,15 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name, as: :string
+    <%= f.input :name, as: :string,
                 required: true,
                 autofocus: true,
                 label: "Mudar Nome" %>
-    <%= f.input :details, as: :text
+    <%= f.input :details, as: :text,
                 required: true,
                 autofocus: true,
                 label: "Mudar Descrição" %>
-    <%= f.input :price_cents, as: :integer
+    <%= f.input :price_cents, as: :integer,
                 required: true,
                 autofocus: true,
                 label: "Editar Preço" %>

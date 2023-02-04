@@ -1,6 +1,7 @@
 class ToolsController < ApplicationController
   def show
     @tool = Tool.find(params[:id])
+    authorize @tool
   end
 
   def new
@@ -11,7 +12,7 @@ class ToolsController < ApplicationController
   def create
     @tool = Tool.new(tool_params)
     @tool.user = current_user
-    @tool.price_cents = price_cents * 100
+    @tool.price_cents = params[:tool][:price_cents].to_i * 100
     authorize @tool
     if @tool.save
       redirect_to root_path
@@ -34,6 +35,7 @@ class ToolsController < ApplicationController
 
   def destroy
     @tool = Tool.find(params[:id])
+    authorize @tool
     @tool.destroy
     # redirecionando para home, editar depois
     redirect_to root_path, status: :see_other
