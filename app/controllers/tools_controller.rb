@@ -1,13 +1,11 @@
 class ToolsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
-  
+
   def index
     @tools = policy_scope(Tool)
-
     if params[:query].present?
       @tools = Tool.search_by_name_and_details(params[:query])
     end
-
   end
 
   def show

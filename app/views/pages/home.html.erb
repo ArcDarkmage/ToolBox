@@ -8,91 +8,24 @@
   </div>
 </div>
 
-
 <p class="recentes">Ferramentas recentes</p>
 
-
 <div class="cards">
-  <% @tools.each do |tool|%>
+  <% @tools.each do |tool| %>
     <div class="card-trip">
-<!-- a partir daqui conflito -->
+
      <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcPalH90DW4IXgolSN5ikKCKDuq2g80ds6ZOUwVQ8W-HognQVTNFcLoMqupAXInI7lv8c&usqp=CAU", class: "", alt: "avatar" %>
      <div class="card-trip-infos">
         <div>
-          <h3 class="title-tool">Martelo Tramontina</h3>
-          <p>Short description here! Quem manda na minha terra sou euzis.</p>
-          <p class="card-trip-pricing">R$8,00</p>
+          <h3 class="title-tool"><%= link_to tool.name, tool_path(tool), class: "text-decoration-none text-reset" %></h3>
+          <p><%= tool.details %></p>
+          <p class="card-trip-pricing"><%="R$ #{tool.price_cents / 100},00"%></p>
         </div>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />-->
       </div>
-    </div>
-
-    <div class="card-trip">
-     <%= image_tag "https://img.kalunga.com.br/fotosdeprodutos/224006d.jpg", class: "", alt: "avatar" %>
-     <div class="card-trip-infos">
-        <div>
-          <h3 class="title-tool">Trena</h3>
-          <p>Short description here! Quem manda na minha terra sou euzis.</p>
-          <p class="card-trip-pricing">R$10,00</p>
-        </div>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-      </div>
-    </div>
-
-    <div class="card-trip">
-     <%= image_tag "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQBK5P77ec4wNyOQrjXf6j2wLDQ_FZ446guGivCJp5RmcSqyZSbJ3yRQcJPpqYZwZovxZipCi1jANw1kVISH9-W5hoWhuXS72nMbw4c5U2ccYTwCO2ML3C3&usqp=CAc", class: "", alt: "avatar" %>
-     <div class="card-trip-infos">
-        <div>
-          <h3 class="title-tool">Chave de boca</h3>
-          <p>Short description here! Quem manda na minha terra sou euzis.</p>
-          <p class="card-trip-pricing">R$5,00</p>
-        </div>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-      </div>
-    </div>
-
-    <div class="card-trip">
-     <%= image_tag "https://eletrum.vteximg.com.br/arquivos/ids/510858-449-449/0140320388.png?v=637734644587930000", class: "", alt: "avatar" %>
-     <div class="card-trip-infos">
-        <div>
-          <h3 class="title-tool">Serra tico-tico</h3>
-          <p>Short description here! Quem manda na minha terra sou euzis.</p>
-          <p class="card-trip-pricing">R$15,00</p>
-        </div>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-      </div>
-    </div>
-
-   <!--
-   <div class="card-trip">
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.kalunga.com.br/fotosdeprodutos/224006d.jpg)">
-          <p style="text-align: center">Trena
-          <br><span style="font-size: 14px">R$5,00</span></p>
-      </div>
-    </div>
-
-  <div class="card-trip">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://static3.tcdn.com.br/img/img_prod/639010/serrote_profissional_20_gold_pro_vila_6029_1_bf13f75a309141afb717e609d2b1276c_20221207105524.jpg)">
-        <p style="text-align: center">Serrote
-          <br><span style="font-size: 14px">R$15,00</span></p>
-    </div>
-  </div>
-
-  <div class="card-trip">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.lojadomecanico.com.br/IMAGENS/2/468/80746/Alicate-de-Bico-Meia-Cana-65-Pol-fortgpro-fg80201.JPG)">
-        <p style="text-align: center">Alicate
-          <br><span style="font-size: 14px">R$9,00</span></p>
-    </div>
-  </div>
-  -->
-
-
-
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://m.media-amazon.com/images/I/51rP6L10GKL._AC_SX569_.jpg)">
-          <p style="text-align: center"> <%= link_to tool.name, tool_path(tool), class: "text-decoration-none text-reset" %>
-          <br><span style="font-size: 14px"><%="R$ #{tool.price_cents / 100},00"%></span></p>
-        </div>
     </div>
   <% end %>
-<!-- até aqui -->
+
 </div>
+
+<p class="recentes"><%= link_to "Veja todas as ferramentas", tools_path %></p>
