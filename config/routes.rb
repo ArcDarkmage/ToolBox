@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
@@ -6,9 +7,23 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  resources :profiles, only: [:show]
+
   resources :tools, except: [:index] do
     resources :rents
   end
-
-  resources :profiles, only: [:show]
 end
