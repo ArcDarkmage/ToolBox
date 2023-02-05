@@ -54,6 +54,9 @@ gem "devise"
 # PG Search for search engine
 gem 'pg_search'
 
+# Cloudinary to store photos and files
+gem "cloudinary"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
