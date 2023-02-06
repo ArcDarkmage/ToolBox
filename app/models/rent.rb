@@ -2,6 +2,7 @@ class Rent < ApplicationRecord
   belongs_to :tool
   belongs_to :user
   validates :date_start, :date_end, presence: { message: "Data deve ser preenchida" }
+  validates :total_cents, presence: true
   validate :date_start_and_date_end
   validate :available
 
