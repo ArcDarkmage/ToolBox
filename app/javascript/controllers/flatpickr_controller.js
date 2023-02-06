@@ -8,10 +8,13 @@ export default class extends Controller {
   connect() {
     const unavailableDates = this.startDateTarget.dataset.value
     flatpickr(this.startDateTarget, { minDate: "today",
-                                      disable: JSON.parse(unavailableDates)
-                                      })
+                                      disable: JSON.parse(unavailableDates),
+                                      altInput: true,
+                                      altFormat: "d-m-Y" })
     flatpickr(this.endDateTarget, { minDate: "today",
-                                    disable: JSON.parse(unavailableDates) })
+                                    disable: JSON.parse(unavailableDates),
+                                    altInput: true,
+                                    altFormat: "d-m-Y" })
     this.dateStart = Date.parse(this.startDateTarget.value)
     this.dateEnd = Date.parse(this.endDateTarget.value)
   }
