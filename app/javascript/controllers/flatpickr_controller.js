@@ -1,8 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
 import flatpickr from "flatpickr";
-// Import the rangePlugin from the flatpickr library
-import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
-
 
 // Connects to data-controller="flatpickr"
 export default class extends Controller {
@@ -15,7 +12,7 @@ export default class extends Controller {
     this.dateEnd = Date.parse(this.endDateTarget.value)
   }
 
-  calculatotal() {
+  calculaTotal() {
     this.price = parseFloat(this.startDateTarget.dataset.value / 100)
     this.days = ((this.dateEnd - this.dateStart) / 86_400_000) + 1
     let totalprice = this.days * this.price
@@ -29,11 +26,12 @@ export default class extends Controller {
 
   dateChangeStart() {
     this.dateStart = Date.parse(this.startDateTarget.value)
-    this.calculatotal()
+    this.calculaTotal()
   }
 
   dateChangeEnd() {
     this.dateEnd = Date.parse(this.endDateTarget.value)
-    this.calculatotal()
+    this.calculaTotal()
   }
+
 }

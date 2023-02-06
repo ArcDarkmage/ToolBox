@@ -33,8 +33,8 @@
       <%= f.input :date_end, as: :string,
                   error: @rent.errors.messages[:date_end].first,
                   input_html: { data: { flatpickr_target: "endDate",
-                                        action: "input->flatpickr#dateChangeEnd" } },
-                  id: 'end_date',
+                                        action: "input->flatpickr#dateChangeEnd" },
+                                        id: 'end_date' },
                   label: "Data da devolução" %>
     </div>
     <div class="form-actions">
