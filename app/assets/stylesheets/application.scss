@@ -11,26 +11,13 @@
 @import "components/index";
 @import "pages/index";
 
-@import "components/_navbar_search";
-@import "components/_footer";
-
-
 
 #page-container {
   position: relative;
   min-height: 100vh;
 }
 
-#content-wrap {
-  padding-bottom: 130px;    /* altura do rodapé */
-}
 
-#footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 130px;            /* altura do rodapé */
-}
 
 
 h2 {

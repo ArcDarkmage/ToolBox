@@ -1,0 +1,50 @@
+.tools-container {
+  width: 600px;
+}
+
+.list-header {
+  padding-top: 8px;
+  height: 50px;
+  width: 300px;
+  background-color: #8d5b55;
+  border-right: solid 3px white;
+  color: white;
+
+}
+
+h3.text-center {
+  font-size: 16px;
+  font-weight: bolder;
+  padding-top: 7px;
+}
+
+ul.list-tools {
+  background-color: rgb(229, 225, 225);
+  border-right: solid 3px white;
+
+}
+
+.container-list-tools {
+  margin-right: 20px;
+
+}
+
+
+li.list-group-item{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+:hover.list-group-item {
+  color: #8d5b55;
+  font-weight: bold;
+}
+
+.tools-container{
+  margin: 0 auto;
+}
+
+
+.tool-registrate {
+  width: 600px;
+}

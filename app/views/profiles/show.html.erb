@@ -1,9 +1,11 @@
-
+<div class="tools-container">
 <div class="container mt-5 d-flex flex-row justify-content-around">
   <%if @user.tools.size >= 1 %>
-    <div>
-      <h3 class = "text-center" >Minhas ferramentas:</h3>
-      <ul>
+    <div class="container-list-tools">
+      <div class="list-header">
+        <h3 class = "text-center" >Minhas ferramentas</h3>
+      </div>
+      <ul class="list-tools">
         <% @user.tools.each do |tool|%>
           <li class= "list-group-item">
             <%= link_to tool.name, tool_path(tool), class: "text-decoration-none text-reset" %>
@@ -16,18 +18,27 @@
           </li>
         <%end%>
       </ul>
-      <p><%= link_to "Cadastrar uma nova ferramenta", new_tool_path %></p>
     </div>
   <%end%>
+
+
   <div>
-    <h3 class = "text-center" >Meus aluguéis:</h3>
-    <ul>
-    <% @user.rents.each do |rent|%>
-      <% next if rent.date_end < Date.today %>
-      <li class= "list-group-item" >
-        <%= "#{rent.tool.name} #{rent.date_start.strftime("(de: %d/%m/%Y")} #{rent.date_end.strftime(" até: %d/%m/%Y)")}" %>
-      </li>
+    <div class="list-header">
+      <h3 class = "text-center" >Meus aluguéis</h3>
+    </div>
+    <ul class="list-tools">
+      <% @user.rents.each do |rent|%>
+        <% next if rent.date_end < Date.today %>
+        <li class= "list-group-item" >
+          <%= "#{rent.tool.name} #{rent.date_start.strftime("(de: %d/%m/%Y")} #{rent.date_end.strftime(" até: %d/%m/%Y)")}" %>
+        </li>
     <%end%>
     </ul>
   </div>
+
+</div>
+
+<div class="tool-registrate">
+  <p><%= link_to "Cadastrar ferramenta", new_tool_path, class: "btn btn-ghost confirme" %></p>
+</div>
 </div>
