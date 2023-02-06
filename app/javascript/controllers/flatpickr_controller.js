@@ -6,21 +6,25 @@ export default class extends Controller {
   static targets = [ "startDate", "endDate" , "total"]
 
   connect() {
-    flatpickr(this.startDateTarget, { minDate: "today" })
-    flatpickr(this.endDateTarget, { minDate: "today" })
+    const unavailableDates = this.startDateTarget.dataset.value
+    flatpickr(this.startDateTarget, { minDate: "today",
+                                      disable: JSON.parse(unavailableDates)
+                                      })
+    flatpickr(this.endDateTarget, { minDate: "today",
+                                    disable: JSON.parse(unavailableDates) })
     this.dateStart = Date.parse(this.startDateTarget.value)
     this.dateEnd = Date.parse(this.endDateTarget.value)
   }
 
   calculaTotal() {
-    this.price = parseFloat(this.startDateTarget.dataset.value / 100)
-    this.days = ((this.dateEnd - this.dateStart) / 86_400_000) + 1
-    let totalprice = this.days * this.price
-    if (totalprice < 0.0 || isNaN(totalprice)) {
+    const price = parseFloat(this.totalTarget.dataset.value / 100)
+    const days = ((this.dateEnd - this.dateStart) / 86_400_000) + 1
+    let total = days * price
+    if (total < 0.0 || isNaN(total)) {
       this.totalTarget.innerText = `Total do aluguél: R$ 0,00`
     }
     else{
-      this.totalTarget.innerText = `Total do aluguél: R$${this.days * this.price}`
+      this.totalTarget.innerText = `Total do aluguél: R$${total}`
     }
   }
 
