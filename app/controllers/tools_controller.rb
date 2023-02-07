@@ -10,6 +10,7 @@ class ToolsController < ApplicationController
 
   def show
     @tool = Tool.find(params[:id])
+    @rent = Rent.new unless current_user == @tool.user
     authorize @tool
   end
 

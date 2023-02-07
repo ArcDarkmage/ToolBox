@@ -1,16 +1,38 @@
-<h1><%= @tool.name %></h1>
-<% if @tool.photo.attached? %>
-  <%= cl_image_tag(@tool.photo.key, crop: :fill) %>
-<% else %>
-  <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcPalH90DW4IXgolSN5ikKCKDuq2g80ds6ZOUwVQ8W-HognQVTNFcLoMqupAXInI7lv8c&usqp=CAU", alt: "ferramenta" %>
-<% end %>
-<h5> Cadastrada por: <%= @tool.user.first_name %></h5>
-<p><%= @tool.details %></p>
-<% if current_user == @tool.user %>
-  <%= link_to "Editar informações", edit_tool_path(@tool) %>
-  <%= link_to "Deletar", tool_path(@tool),
-    data: {turbo_method: :delete, turbo_confirm: "Você confirma essa ação?"}
-  %>
-<%else%>
-  <%= link_to "Alugar esta ferramenta", new_tool_rent_path(@tool) %>
-<% end %>
+<div class = "container mt-5" >
+  <div class="row align-items-start">
+    <div class="col">
+      <div class="card-product">
+        <% if @tool.photo.attached? %>
+          <%= cl_image_tag(@tool.photo.key, crop: :fill) %>
+        <% else %>
+          <img src= "https://m.media-amazon.com/images/I/51rP6L10GKL._AC_SX569_.jpg" alt="ferramenta">
+        <% end %>
+        <div class="card-product-infos">
+          <h2><%= @tool.name %></h2>
+          <p><%= @tool.details %></p>
+          <p>Valor da diária: <strong> R$<%= sprintf('%.2f',(@tool.price_cents / 100.00))%></strong></p>
+          <p>Cadastrada por <%= @tool.user.first_name %>, apto: <%= @tool.user.apartment%> </p>
+          <% if current_user == @tool.user %>
+            <%= link_to "Editar informações", edit_tool_path(@tool) %>
+            <%= link_to "Deletar", tool_path(@tool),
+              data: {turbo_method: :delete, turbo_confirm: "Você confirma essa ação?"}
+            %>
+          <%else%>
+            <%= link_to "Alugar esta ferramenta", new_tool_rent_path(@tool) %>
+          <% end %>
+        </div>
+      </div>
+        <%= link_to "Voltar", :back %>
+      <div>
+      </div>
+    </div>
+    <div class="col">
+      <% if current_user == @tool.user %>
+        <%= render 'calendario', tool: @tool %>
+      <% else %>
+        <%# colocar aqui o formulário para novo aluguel %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
