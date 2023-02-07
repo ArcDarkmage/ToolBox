@@ -27,6 +27,8 @@
     <div class="col">
       <% if current_user == @tool.user %>
         <%= render 'calendario', tool: @tool %>
+      <% else %>
+        <%# colocar aqui o formulário para novo aluguel %>
       <% end %>
     </div>
   </div>
