@@ -1,0 +1,8 @@
+ <%= month_calendar(events: tool.rents, attribute: :date_start) do |date, rents| %>
+          <%= date %>
+          <% rents.each do |rent| %>
+            <div class="rent-calendar">
+              <p><%= "#{rent.user.first_name} - apto: #{rent.user.apartment}" %></p>
+            </div>
+          <% end %>
+        <% end %>
