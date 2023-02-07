@@ -1,30 +1,23 @@
-<h3 class= 'mt-3'>Ferramenta: <%= @tool.name %></h3>
-
-<%= simple_form_for([@tool, @rent], data: {turbo: false}) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :date_start,
-                start_year: Date.today.year,
-                start_day: Date.today.day,
-                order: [:day, :month, :year],
-                required: true,
-                autofocus: true,
-                # este error mostra a primeira mensagem de erro na listagem de
-                # validação dos erros (se não for assim acaba indo coisa a mais)
-                error: @rent.errors.messages[:date_start].first,
-                label: "Data do empréstimo" %>
-    <%= f.input :date_end,
-                start_year: Date.today.year,
-                start_day: Date.today.day,
-                order: [:day, :month, :year],
-                required: true,
-                autofocus: true,
-                error: @rent.errors.messages[:date_end].first,
-                label: "Data da devolução" %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Confirme" , class: 'btn btn-primary' %>
-  </div>
-<% end %>
+<h3 class='mt-3'>Ferramenta: <%= @tool.name %></h3>
+<div data-controller= 'flatpickr'>
+  <%= simple_form_for([@tool, @rent], data: {turbo: false}) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :date_start, as: :string,
+                  error: @rent.errors.messages[:date_start].first,
+                  input_html: { data: { flatpickr_target: "startDate",
+                                        value: @rent.unavailable_dates(@tool.id),
+                                        action: "input->flatpickr#dateChangeStart" } },
+                  label: "Data do empréstimo" %>
+      <%= f.input :date_end, as: :string,
+                  error: @rent.errors.messages[:date_end].first,
+                  input_html: { data: { flatpickr_target: "endDate",
+                                        action: "input->flatpickr#dateChangeEnd" } },
+                  label: "Data da devolução" %>
+    </div>
+    <div class="form-actions">
+      <h4 data-flatpickr-target="total" data-value = <%=@tool.price_cents%>>Total do aluguél: R$ 0,00</h4>
+      <%= f.button :submit, "Confirme" , class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

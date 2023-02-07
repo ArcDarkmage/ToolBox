@@ -10,9 +10,10 @@ class RentsController < ApplicationController
     @tool = Tool.find(params[:tool_id])
     @rent.user = current_user
     @rent.tool = @tool
+    days = (@rent.date_end - @rent.date_start).to_i
+    @rent.total_cents = @tool.price_cents * (days + 1)
     authorize @rent
     if @rent.save
-      # por enquanto está indo para a página inicial. Alterar depois.
       redirect_to profile_path(current_user)
     else
       render :new, status: :unprocessable_entity
