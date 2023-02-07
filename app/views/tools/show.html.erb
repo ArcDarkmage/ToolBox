@@ -1,6 +1,10 @@
 <h1><%= @tool.name %></h1>
-<img src= "https://m.media-amazon.com/images/I/51rP6L10GKL._AC_SX569_.jpg" alt="ferramenta" style="height: 200px; width: auto;">
-<h3> Cadastrada por: <%= @tool.user.first_name %></h3>
+<% if @tool.photo.attached? %>
+  <%= cl_image_tag(@tool.photo.key, crop: :fill) %>
+<% else %>
+  <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcPalH90DW4IXgolSN5ikKCKDuq2g80ds6ZOUwVQ8W-HognQVTNFcLoMqupAXInI7lv8c&usqp=CAU", alt: "ferramenta" %>
+<% end %>
+<h5> Cadastrada por: <%= @tool.user.first_name %></h5>
 <p><%= @tool.details %></p>
 <% if current_user == @tool.user %>
   <%= link_to "Editar informações", edit_tool_path(@tool) %>

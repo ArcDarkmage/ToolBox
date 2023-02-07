@@ -1,6 +1,5 @@
 
 <div class="container mt-5 d-flex flex-row justify-content-around">
-  <%if @user.tools.size >= 1 %>
     <div>
       <h3 class = "text-center" >Minhas ferramentas:</h3>
       <ul>
@@ -15,10 +14,10 @@
             <% end %>-->
           </li>
         <%end%>
-      </ul>
+        </ul>
       <p><%= link_to "Cadastrar uma nova ferramenta", new_tool_path %></p>
     </div>
-  <%end%>
+
   <div>
     <h3 class = "text-center" >Meus aluguéis:</h3>
     <ul>
