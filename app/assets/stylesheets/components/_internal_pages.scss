@@ -1,0 +1,50 @@
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+
+.cancel-account {
+  margin-top: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.cancel-account p {
+  margin-bottom: 0px;
+}
+
+h2 {
+  padding: 40px;
+  }
+
+  .form-inputs {
+    width: 500px;
+  }
+
+  #content-wrap{
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  .cadastrese {
+    width: 500px;
+    margin: 0 auto;
+  }
+
+
+  .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label  {
+    color:#f73013;
+  }
+
+  .was-validated .form-check-input:valid, .form-check-input.is-valid {
+    border-color: #f73013;
+  }
+
+  .was-validated .form-check-input:valid:checked, .form-check-input.is-valid:checked {
+    background-color: #f73013;
+}
+
+h2.emprestimos {
+  padding-right: 0px;
+}

@@ -1,0 +1,70 @@
+// CARDS
+
+.card-trip {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 10px 15px 15px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 35px;
+}
+
+p.card-trip-pricing{
+font-size: 14px;
+}
+
+h3.title-tool{
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.title-h3 {
+  height: 40px;
+}
+
+.description {
+height: 55px;
+}
+
+.price {
+  font-weight: bold;
+  color: #f73013;
+  top: 20px;
+  padding-top: 7px;
+}

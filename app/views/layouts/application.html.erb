@@ -35,14 +35,12 @@
           <%= text_field_tag :query,
             params[:query],
             class: "form-control",
-            placeholder: "Busque uma Ferramenta" %>
+            placeholder: " Busque uma Ferramenta" %>
               <button name="button" type="submit" class="btn btn-flat">
                 <i class="fas fa-search"></i> Busca
               </button>
           </div>
         <% end %>
-
-
           <!-- FIM BUSCA -->
 
 
@@ -50,7 +48,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>-->
 
-
+<div class="conteiner-conteudo>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto">
@@ -58,9 +56,7 @@
                     <li class="nav-item active">
                       <%= link_to "Home", root_path, class: "nav-link" %>
                     </li>
-                    <li class="nav-item">
-                      <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
-                    </li>
+
                     <li class="nav-item dropdown">
                         <% if current_user.photo.attached? %>
                           <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle" , id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
@@ -68,8 +64,8 @@
                           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                         <% end %>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                          <%= link_to "Dashboard", profile_path(current_user), class: "dropdown-item" %>
-                          <!--<%= link_to "Another action", "#", class: "dropdown-item" %>-->
+                          <%= link_to "Meu painel", profile_path(current_user), class: "dropdown-item" %>
+                          <%= link_to "Editar perfil", edit_user_registration_path(current_user), class: "dropdown-item" %>
                           <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class:"dropdown-item" %>
                         </div>
                     </li>
@@ -104,6 +100,9 @@
       </div>
     </div>
   <!-- FIM DA FOOTER -->
+
+
+</div>
 
   </body>
 </html>
