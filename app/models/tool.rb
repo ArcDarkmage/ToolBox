@@ -1,6 +1,7 @@
 class Tool < ApplicationRecord
   belongs_to :user
   has_many :rents
+  has_one_attached :photo
   validates :name, :details, :price_cents, presence: true
 
   include PgSearch::Model

@@ -4,18 +4,7 @@
 
 <div class="cards">
   <% @tools.each do |tool| %>
-    <div class="card-trip">
-
-     <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcPalH90DW4IXgolSN5ikKCKDuq2g80ds6ZOUwVQ8W-HognQVTNFcLoMqupAXInI7lv8c&usqp=CAU", class: "", alt: "avatar" %>
-     <div class="card-trip-infos">
-        <div>
-          <h3 class="title-tool"><%= link_to tool.name, tool_path(tool), class: "text-decoration-none text-reset" %></h3>
-          <p><%= tool.details %></p>
-          <p class="card-trip-pricing"><%="R$ #{tool.price_cents / 100},00"%></p>
-        </div>
-          <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />-->
-      </div>
-    </div>
+    <%= render 'shared/card', tool: tool %>
   <% end %>
-
 </div>
+

@@ -12,6 +12,7 @@
 
 <div class="cards">
   <% @tools.each do |tool| %>
+<!-- O que estava no arrumando-cards. Ver depois para arrumar com a da master -->
     <div class="card-trip">
 
      <%= image_tag "https://www.cec.com.br/files/blog/posts/2021/08_agosto/20210819/Chave-boca-700x409_5.png", class: "", alt: "avatar" %>
@@ -30,8 +31,10 @@
           <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />-->
       </div>
     </div>
+<!-- o que estava na master
+    <%= render 'shared/card', tool: tool %>
+-->
   <% end %>
-
 </div>
 
 <p class="recentes"><%= link_to "Veja todas as ferramentas", tools_path, class: "btn btn-ghost" %></p>

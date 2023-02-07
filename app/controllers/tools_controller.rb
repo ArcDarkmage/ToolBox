@@ -10,6 +10,7 @@ class ToolsController < ApplicationController
 
   def show
     @tool = Tool.find(params[:id])
+    @rent = Rent.new unless current_user == @tool.user
     authorize @tool
   end
 
@@ -24,7 +25,7 @@ class ToolsController < ApplicationController
     @tool.price_cents = params[:tool][:price_cents].to_i * 100
     authorize @tool
     if @tool.save
-      redirect_to root_path
+      redirect_to profile_path(@tool.user)
     else
       render :new, status: :unprocessable_entity
     end
@@ -57,6 +58,6 @@ class ToolsController < ApplicationController
   private
 
   def tool_params
-    params.require(:tool).permit(:name, :details, :price_cents)
+    params.require(:tool).permit(:name, :details, :price_cents, :photo)
   end
 end

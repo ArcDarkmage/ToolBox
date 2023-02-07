@@ -1,0 +1,25 @@
+.simple-calendar {
+  table {
+    min-height: 80vh;
+  }
+  .today {
+    background-color: #f5e7b9;
+  }
+}
+
+.rent-calendar {
+  color: white;
+  padding: 4px 2px;
+  border-radius: 4px;
+  background: #1EDD88;
+  transition: background 0.3s ease;
+}
+
+.rent-calendar p {
+  margin :0;
+}
+
+.rent-calendar:hover {
+  background: #1BCB7F;
+  color: white;
+}

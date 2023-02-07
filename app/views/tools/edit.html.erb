@@ -2,7 +2,6 @@
     <div id="content-wrap">
 
       <h2>Edite as informações da sua ferramenta:</h2>
-
       <%= simple_form_for([@tool], data: {turbo: false}) do |f| %>
         <%= f.error_notification %>
 
@@ -19,12 +18,13 @@
                       required: true,
                       autofocus: true,
                       label: "Editar Preço" %>
+           <%= f.input :photo, as: :file,
+                label: "Foto"%>%>
         </div>
 
         <div class="form-actions">
           <%= f.button :submit, "Atualizar" , class: "btn btn-ghost confirme" %>
         </div>
       <% end %>
-
   </div>
 </div>
