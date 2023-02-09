@@ -32,7 +32,6 @@ class RentsController < ApplicationController
   end
 
   def update
-    #tem que colocar a logica para liberar as datas atuais para edição
     @rent = Rent.find(params[:id])
     @tool = @rent.tool
     days = (@rent.date_end - @rent.date_start).to_i

@@ -6,7 +6,7 @@
       <%= f.input :date_start, as: :string,
                   error: rent.errors.messages[:date_start].first,
                   input_html: { data: { flatpickr_target: "startDate",
-                                value: rent.unavailable_dates(tool.id),
+                                value: rent.unavailable_dates(tool.id, rent),
                                 action: "input->flatpickr#dateChangeStart" } },
                                 label: "Data do empréstimo" %>
       <%= f.input :date_end, as: :string,

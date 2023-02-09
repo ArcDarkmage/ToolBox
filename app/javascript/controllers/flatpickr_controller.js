@@ -13,14 +13,11 @@ export default class extends Controller {
     flatpickr(this.startDateTarget, { minDate: "today",
                                       disable: JSON.parse(unavailableDates),
                                       altInput: true,
-                                      altFormat: "d-m-Y",
-                                      defaultDate: this.dateStart
-                                    })
+                                      altFormat: "d-m-Y" })
     flatpickr(this.endDateTarget, { minDate: "today",
                                     disable: JSON.parse(unavailableDates),
                                     altInput: true,
-                                    altFormat: "d-m-Y",
-                                    defaultDate: this.dateStart })
+                                    altFormat: "d-m-Y" })
   }
 
   calculaTotal() {
