@@ -1,6 +1,6 @@
 
-  <div id="page-container">
-    <div id="content-wrap">
+
+    <div class="content-wrap">
       <h2>Log in</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
@@ -22,9 +22,9 @@
         <div class="form-actions">
           <%= f.button :submit, "Log in", class: "btn btn-ghost confirme" %>
         </div>
-      <% end %>
+        <% end %>
+        <div class="cancel-account">
+          <p><%= render "devise/shared/links" %></p>
+        </div>
 
-      <%= render "devise/shared/links" %>
-
-</div>
 </div>

@@ -1,3 +1,5 @@
+<div class="container">
+
 <h2>Reenviar instruções de confirmação</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
@@ -10,11 +12,11 @@
                 autofocus: true,
                 value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
                 input_html: { autocomplete: "email" } %>
-  </div>
-
   <div class="form-actions">
     <%= f.button :submit, "Reenviar instruções de confirmação" %>
   </div>
 <% end %>
+</div>
 
 <%= render "devise/shared/links" %>
+</div>
