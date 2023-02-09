@@ -20,6 +20,42 @@ class RentsController < ApplicationController
     end
   end
 
+  def show
+    @rent = Rent.find(params[:id])
+    authorize @rent
+  end
+
+  def edit
+    @rent = Rent.find(params[:id])
+    @tool = @rent.tool
+    authorize @rent
+  end
+
+  def update
+    @rent = Rent.find(params[:id])
+    tool = @rent.tool
+    days = (@rent.date_end - @rent.date_start).to_i
+    @rent.total_cents = tool.price_cents * (days + 1)
+    authorize @rent
+    if @rent.update(rent_params)
+      redirect_to rent_path(@rent)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @rent = Rent.find(params[:id])
+    authorize @rent
+    if @rent.date_start < Date.today
+      # como enviar mensagem informando que não pode ser deletado????
+    else
+      @rent.destroy
+      redirect_to profile_path(@rent.user), notice: "Reserva cancelada com sucesso"
+      # perguntar pq não funciona
+    end
+  end
+
   private
 
   def rent_params

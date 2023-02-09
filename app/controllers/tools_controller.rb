@@ -39,9 +39,9 @@ class ToolsController < ApplicationController
 
   def update
     @tool = Tool.find(params[:id])
+    authorize @tool
     @tool.update(tool_params)
     redirect_to tool_path(@tool)
-    authorize @tool
   end
 
   def destroy
