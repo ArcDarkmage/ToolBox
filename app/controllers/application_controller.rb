@@ -14,7 +14,8 @@ class ApplicationController < ActionController::Base
   # end
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name apartment phone_number photo])
-    # devise_parameter_sanitizer.permit(:sign_in, keys: [:first_name, :last_name, :apartment, :phone_number])
+    devise_parameter_sanitizer.permit(:sign_in, keys: %i[first_name last_name apartment phone_number photo])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[first_name last_name apartment phone_number photo])
   end
 
   private
@@ -22,5 +23,4 @@ class ApplicationController < ActionController::Base
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
-
 end
