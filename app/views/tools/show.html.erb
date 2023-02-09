@@ -1,8 +1,5 @@
-
   <div class="page-container">
-
       <div class="row align-items-start">
-
         <div class="col">
           <div class="card-product">
             <% if @tool.photo.attached? %>
@@ -20,24 +17,17 @@
                 <%= link_to "Deletar", tool_path(@tool),
                   data: {turbo_method: :delete, turbo_confirm: "Você confirma essa ação?"}
                 %>
-              <%else%>
-                <%= link_to "Alugar esta ferramenta", new_tool_rent_path(@tool) %>
               <% end %>
             </div>
-
-
           </div>
             <%= link_to "Voltar", :back %>
-        </div>
-
-        <div class="col">
+          </div>
+          <div class="col">
           <% if current_user == @tool.user %>
             <%= render 'calendario', tool: @tool %>
           <% else %>
-            <%# colocar aqui o formulário para novo aluguel %>
+            <%= render 'new_rent', tool: @tool, rent: @rent %>
           <% end %>
         </div>
-
       </div>
-
 </div>
