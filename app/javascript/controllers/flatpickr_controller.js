@@ -7,6 +7,9 @@ export default class extends Controller {
 
   connect() {
     const unavailableDates = this.startDateTarget.dataset.value
+    console.log(this.startDateTarget.value)
+    this.dateStart = Date.parse(this.startDateTarget.value)
+    this.dateEnd = Date.parse(this.endDateTarget.value)
     flatpickr(this.startDateTarget, { minDate: "today",
                                       disable: JSON.parse(unavailableDates),
                                       altInput: true,
@@ -15,8 +18,6 @@ export default class extends Controller {
                                     disable: JSON.parse(unavailableDates),
                                     altInput: true,
                                     altFormat: "d-m-Y" })
-    this.dateStart = Date.parse(this.startDateTarget.value)
-    this.dateEnd = Date.parse(this.endDateTarget.value)
   }
 
   calculaTotal() {

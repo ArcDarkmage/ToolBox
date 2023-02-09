@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :tools do
     resources :rents, only: %i[new create]
   end
+
+  resources :rents, only: %i[edit update show destroy]
 end
