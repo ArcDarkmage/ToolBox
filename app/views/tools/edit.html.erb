@@ -1,5 +1,5 @@
-  <div id="page-container">
-    <div id="content-wrap">
+
+   <div class="tools-container">
 
       <h2>Edite as informações da sua ferramenta:</h2>
       <%= simple_form_for([@tool], data: {turbo: false}) do |f| %>
@@ -19,7 +19,7 @@
                       autofocus: true,
                       label: "Editar Preço" %>
            <%= f.input :photo, as: :file,
-                label: "Foto"%>%>
+                label: "Foto"%>
         </div>
 
         <div class="form-actions">
@@ -27,4 +27,3 @@
         </div>
       <% end %>
   </div>
-</div>
