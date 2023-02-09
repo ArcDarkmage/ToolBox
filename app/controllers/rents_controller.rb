@@ -14,7 +14,7 @@ class RentsController < ApplicationController
     @rent.total_cents = @tool.price_cents * (days + 1)
     authorize @rent
     if @rent.save
-      redirect_to profile_path(current_user)
+      redirect_to profile_path(current_user), notice: "Ferramenta alugada com sucesso."
     else
       render :new, status: :unprocessable_entity
     end
@@ -47,12 +47,11 @@ class RentsController < ApplicationController
   def destroy
     @rent = Rent.find(params[:id])
     authorize @rent
-    if @rent.date_start < Date.today
-      # como enviar mensagem informando que não pode ser deletado????
+    if @rent.date_start <= Date.today
+      redirect_to profile_path(@rent.user), alert: "Aluguel em progresso. Não pode ser cancelado!"
     else
       @rent.destroy
-      redirect_to profile_path(@rent.user), notice: "Reserva cancelada com sucesso"
-      # perguntar pq não funciona
+      redirect_to profile_path(@rent.user), notice: "Aluguel cancelado com sucesso"
     end
   end
 

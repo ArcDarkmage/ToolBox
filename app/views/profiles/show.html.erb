@@ -23,7 +23,8 @@
         <% next if rent.date_end < Date.today %>
         <li class= "list-group-item" >
           <%= link_to "#{rent.tool.name} #{rent.date_start.strftime("(de: %d/%m/%Y")} #{rent.date_end.strftime(" até: %d/%m/%Y)")}",
-              rent_path(rent) %>
+              rent_path(rent),
+              class: "text-decoration-none text-reset" %>
         </li>
     <%end%>
     </ul>
