@@ -32,10 +32,11 @@ class RentsController < ApplicationController
   end
 
   def update
+    #tem que colocar a logica para liberar as datas atuais para edição
     @rent = Rent.find(params[:id])
-    tool = @rent.tool
+    @tool = @rent.tool
     days = (@rent.date_end - @rent.date_start).to_i
-    @rent.total_cents = tool.price_cents * (days + 1)
+    @rent.total_cents = @tool.price_cents * (days + 1)
     authorize @rent
     if @rent.update(rent_params)
       redirect_to rent_path(@rent)

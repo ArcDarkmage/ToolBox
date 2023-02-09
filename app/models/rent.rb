@@ -31,9 +31,12 @@ class Rent < ApplicationRecord
     end
   end
 
-  def unavailable_dates(id)
+  def unavailable_dates(id, rent)
     rents = Tool.find(id).rents
+    rent_range = [rent.date_start, rent.date_end] unless rent.id.nil?
     rents.pluck(:date_start, :date_end).map do |range|
+      next if range == rent_range
+
       { from: range[0], to: range[1] }
     end
   end
