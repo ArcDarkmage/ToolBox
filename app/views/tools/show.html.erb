@@ -20,8 +20,9 @@
                 %>
               <% end %>
             </div>
+
           </div>
-            <%= link_to "<< Voltar", :back, class: "btn btn-ghost esquerda" %>
+
           </div>
           <div class="col">
           <% if current_user == @tool.user %>
@@ -30,5 +31,6 @@
             <%= render 'new_rent', tool: @tool, rent: @rent %>
           <% end %>
         </div>
+        <p><%= link_to "<< Voltar", :back, class: "btn btn-ghost esquerda" %></p>
       </div>
 </div>
