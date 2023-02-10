@@ -21,9 +21,13 @@ class Rent < ApplicationRecord
   def available
     tool = Tool.find(tool_id)
     rents = tool.rents
-    date_ranges = rents.map { |rent| rent.date_start..rent.date_end }
-    current_rent = Rent.find(id)
-    # arrumar a logica
+    current_rent = id.nil? ? 0 : id
+    date_ranges = []
+    rents.each do |rent|
+      next if rent.id == current_rent
+
+      date_ranges << [rent.date_start..rent.date_end]
+    end
     date_ranges.each do |range|
       date_range = date_start..date_end
       range.each do |date|
