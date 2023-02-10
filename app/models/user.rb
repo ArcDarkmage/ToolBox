@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :tools
   has_many :rents
+  belongs_to :condominio
   has_one_attached :photo
   validates :first_name, :last_name, :apartment, :email, presence: true
 

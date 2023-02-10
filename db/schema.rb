@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_06_174418) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_10_002056) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_06_174418) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "condominios", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "rents", force: :cascade do |t|
     t.date "date_start"
     t.date "date_end"
@@ -67,7 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_06_174418) do
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.integer "apartment"
+    t.string "apartment"
     t.string "phone_number"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -76,6 +84,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_06_174418) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "condominio_id"
+    t.boolean "admin", default: false
+    t.index ["condominio_id"], name: "index_users_on_condominio_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
