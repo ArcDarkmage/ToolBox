@@ -54,3 +54,33 @@ h2.emprestimos {
 .btn.btn-ghost.grande {
   margin: 15px 30px 20px 0;
 }
+
+.btn.btn-ghost.esquerda {
+  margin-left: 25px;
+  margin-top: 10px;
+
+}
+
+.btn.btn-ghost.direita {
+  margin-left: 20px;
+  margin-top: 10px;
+
+}
+
+.btn.btn-outline-primary.vermelho {
+  background-color: white;
+  color: #f73013;
+  border-color: #f73013;
+}
+
+:hover.btn.btn-outline-primary.vermelho {
+  background-color: #f7e4e1;
+
+}
+
+
+.calendar-title.btn.btn-primary.vermelho {
+  background-color: #f73013;
+  border-color: #f73013;
+
+}
