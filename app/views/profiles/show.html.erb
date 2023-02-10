@@ -2,7 +2,7 @@
 <div class="container mt-5 d-flex flex-row justify-content-around">
     <div class="container-list-tools">
       <div class="list-header">
-        <h3 class = "text-center" >Minhas ferramentas</h3>
+        <h3 class = "text-center">Minhas ferramentas</h3>
       </div>
       <ul class="list-tools">
         <% @user.tools.each do |tool|%>
@@ -33,6 +33,6 @@
 </div>
 
 <div class="tool-registrate">
-  <p><%= link_to "Cadastrar ferramenta", new_tool_path, class: "btn btn-ghost confirme" %></p>
+  <p><%= link_to "Cadastrar ferramenta", new_tool_path, class: "btn btn-ghost esquerda" %></p>
 </div>
 </div>

@@ -1,11 +1,11 @@
   <div class="page-container">
     <div class="content-wrap">
-      <h3><%=@rent.tool.name %></h3>
+      <h2><%=@rent.tool.name %></h2>
       <p>Período: de <%= @rent.date_start%> até <%=@rent.date_end %></p>
       <p>Pertence a: <%= @rent.tool.user.first_name %> - apto: <%= @rent.tool.user.apartment %></p>
       <div>
-        <%= link_to "Alterar reserva", edit_rent_path(@rent) %>
-        <%= link_to "Cancelar reserva", rent_path(@rent), data: {turbo_method: :delete, turbo_confirm: "Você confirma essa ação?"}%>
+        <%= link_to "Alterar reserva", edit_rent_path(@rent), class: "btn btn-ghost esquerda" %>
+        <%= link_to "Cancelar reserva", rent_path(@rent), class: "btn btn-ghost direita", data: {turbo_method: :delete, turbo_confirm: "Você confirma essa ação?" }%>
       </div>
     </div>
   </div>
