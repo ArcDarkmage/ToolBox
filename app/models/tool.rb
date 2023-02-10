@@ -1,6 +1,6 @@
 class Tool < ApplicationRecord
   belongs_to :user
-  has_many :rents
+  has_many :rents, dependent: :destroy
   has_one_attached :photo
   validates :name, :details, :price_cents, presence: true
 

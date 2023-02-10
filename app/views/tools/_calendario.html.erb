@@ -1,8 +1,8 @@
- <%= month_calendar(events: tool.rents, attribute: :date_start, end_attribute: :date_end) do |date, rents| %>
-    <%= date %>
-    <% rents.each do |rent| %>
-      <div class="rent-calendar">
-        <p><%= link_to "#{rent.user.first_name} - apto: #{rent.user.apartment}", rent_path(rent), class: "text-decoration-none text-reset"%></p>
-      </div>
-    <% end %>
+<%= month_calendar(events: tool.rents, attribute: :date_start, end_attribute: :date_end) do |date, rents| %>
+  <%= date %>
+  <% rents.each do |rent| %>
+    <div class="rent-calendar">
+      <p><%= link_to "#{rent.user.first_name} - apto: #{rent.user.apartment}", rent_path(rent), class: "text-decoration-none text-reset"%></p>
+    </div>
+  <% end %>
 <% end %>

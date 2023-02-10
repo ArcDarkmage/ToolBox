@@ -3,7 +3,6 @@
   min-height: 100vh;
 }
 
-
 .cancel-account {
   margin-top: 20px;
   font-size: 12px;
@@ -83,4 +82,22 @@ h2.emprestimos {
   background-color: #f73013;
   border-color: #f73013;
 
+}
+
+.container.calendar {
+  margin-top: 40px;
+}
+
+.link-text {
+  font-weight: bold;
+  color: #f73013;
+  text-decoration: none;
+}
+
+:hover.link-text {
+  color:#383838;
+}
+
+.card-product p.link-text-margem {
+  margin-bottom: 15px;
 }

@@ -14,10 +14,11 @@
                       required: true,
                       autofocus: true,
                       label: "Mudar Descrição" %>
-          <%= f.input :price_cents, as: :integer,
+          <%= f.input :price_cents, as: :float,
                       required: true,
                       autofocus: true,
-                      label: "Editar Preço" %>
+                      label: "Editar Preço",
+                      input_html: { value: (@tool.price_cents / 100.0) } %>
            <%= f.input :photo, as: :file,
                 label: "Foto"%>
         </div>

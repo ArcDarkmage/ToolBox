@@ -1,5 +1,5 @@
 class ToolsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show, :index]
+  skip_before_action :authenticate_user!, only: %i[show index]
 
   def index
     @tools = policy_scope(Tool)
@@ -22,7 +22,7 @@ class ToolsController < ApplicationController
   def create
     @tool = Tool.new(tool_params)
     @tool.user = current_user
-    @tool.price_cents = params[:tool][:price_cents].to_i * 100
+    @tool.price_cents = (params[:tool][:price_cents].to_f * 100).to_i
     authorize @tool
     if @tool.save
       redirect_to profile_path(@tool.user)
@@ -33,7 +33,6 @@ class ToolsController < ApplicationController
 
   def edit
     @tool = Tool.find(params[:id])
-    @tool.price_cents.to_i / 100
     authorize @tool
   end
 
@@ -41,7 +40,9 @@ class ToolsController < ApplicationController
     @tool = Tool.find(params[:id])
     authorize @tool
     @tool.update(tool_params)
-    redirect_to tool_path(@tool)
+    @tool.price_cents = (params[:tool][:price_cents].to_f * 100).to_i
+    @tool.save
+    redirect_to tool_path(@tool), notice: "Ferramenta atualizada com sucesso"
   end
 
   def destroy
