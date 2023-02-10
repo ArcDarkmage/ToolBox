@@ -13,9 +13,7 @@
             </li>
           <%end%>
       </ul>
-      <div class="tool-registrate">
-        <p><%= link_to "Cadastrar ferramenta", new_tool_path, class: "btn btn-ghost esquerda" %></p>
-      </div>
+      <p class="esquerda"><%= link_to "Cadastrar ferramenta", new_tool_path, class: "btn btn-ghost esquerda" %></p>
     </div>
   </div>
   <div class="row">
@@ -30,7 +28,7 @@
             <% next if rent.date_end < Date.today %>
 
             <div class="rent-calendar">
-              <p><%= link_to "#{rent.tool.name} - apto: #{rent.tool.user.apartment}", rent_path(rent), class: "text-decoration-none text-reset"%></p>
+              <p><%= link_to "#{rent.tool.name}", rent_path(rent), class: "text-decoration-none text-reset"%></p>
             </div>
           <% end %>
         <% end %>

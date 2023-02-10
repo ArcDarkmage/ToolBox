@@ -28,7 +28,7 @@ export default class extends Controller {
       this.totalTarget.innerText = `Total do aluguél: R$ 0,00`
     }
     else{
-      this.totalTarget.innerText = `Total do aluguél: R$${total}`
+      this.totalTarget.innerText = `Total do aluguél: R$${total.toFixed(2)}`
     }
   }
 
