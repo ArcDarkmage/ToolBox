@@ -1,38 +1,40 @@
-<div class="tools-container">
-<div class="container mt-5 d-flex flex-row justify-content-around">
-    <div class="container-list-tools">
-      <div class="list-header">
-        <h3 class = "text-center">Minhas ferramentas</h3>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <div>
+        <div class="list-header">
+          <h3 class = "text-center">Minhas ferramentas</h3>
+        </div>
       </div>
       <ul class="list-tools">
-        <% @user.tools.each do |tool|%>
-          <li class= "list-group-item">
-            <%= link_to tool.name, tool_path(tool), class: "text-decoration-none text-reset" %>
-          </li>
-        <%end%>
-        </ul>
-
+          <% @user.tools.each do |tool|%>
+            <li class= "list-group-item">
+              <%= link_to tool.name, tool_path(tool), class: "text-decoration-none text-reset" %>
+            </li>
+          <%end%>
+      </ul>
+      <div class="tool-registrate">
+        <p><%= link_to "Cadastrar ferramenta", new_tool_path, class: "btn btn-ghost esquerda" %></p>
+      </div>
     </div>
-
-  <div>
-    <div class="list-header">
-      <h3 class = "text-center">Meus aluguéis</h3>
-    </div>
-    <ul class="list-tools">
-      <% @user.rents.each do |rent|%>
-        <% next if rent.date_end < Date.today %>
-        <li class= "list-group-item" >
-          <%= link_to "#{rent.tool.name} #{rent.date_start.strftime("(de: %d/%m/%Y")} #{rent.date_end.strftime(" até: %d/%m/%Y)")}",
-              rent_path(rent),
-              class: "text-decoration-none text-reset" %>
-        </li>
-    <%end%>
-    </ul>
   </div>
+  <div class="row">
+    <div class="col">
+      <div class="list-header">
+        <h3 class = "text-center">Meus aluguéis</h3>
+      </div>
+      <div>
+        <%= month_calendar(events: @user.rents, attribute: :date_start, end_attribute: :date_end) do |date, rents| %>
+          <%= date %>
+          <% rents.each do |rent| %>
+            <% next if rent.date_end < Date.today %>
 
-</div>
-
-<div class="tool-registrate">
-  <p><%= link_to "Cadastrar ferramenta", new_tool_path, class: "btn btn-ghost esquerda" %></p>
-</div>
+            <div class="rent-calendar">
+              <p><%= link_to "#{rent.tool.name} - apto: #{rent.tool.user.apartment}", rent_path(rent), class: "text-decoration-none text-reset"%></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
