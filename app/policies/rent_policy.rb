@@ -15,7 +15,7 @@ class RentPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user
+    record.user == user || record.tool.user == user
   end
 
   def edit?
