@@ -6,7 +6,7 @@
             <% if @tool.photo.attached? %>
               <%= cl_image_tag(@tool.photo.key, crop: :fill) %>
             <% else %>
-              <img src= "https://m.media-amazon.com/images/I/51rP6L10GKL._AC_SX569_.jpg" alt="ferramenta">
+              <%= image_tag "tools.png", alt: "ferramenta" %>
             <% end %>
             <div class="card-product-infos">
               <h3><%= @tool.name %></h3>

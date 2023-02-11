@@ -5,11 +5,10 @@
 .list-header {
   padding-top: 8px;
   height: 50px;
-  width: 300px;
+  width: 100%;
   background-color: #c2857d;
   border-right: solid 3px white;
   color: white;
-
 }
 
 h3.text-center {
@@ -18,12 +17,13 @@ h3.text-center {
   padding-top: 7px;
 }
 
-ul.list-tools {
+.list-tools {
   background-color: rgb(229, 225, 225);
   border-right: solid 3px white;
 
 }
 
+// verificar se usa em algum outro lugar
 .container-list-tools {
   margin-right: 20px;
 

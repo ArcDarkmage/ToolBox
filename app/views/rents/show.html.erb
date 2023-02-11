@@ -1,11 +1,21 @@
   <div class="page-container">
-    <div class="content-wrap">
-      <h2><%=@rent.tool.name %></h2>
-      <p>Período: de <%= @rent.date_start%> até <%=@rent.date_end %></p>
-      <p>Pertence a: <%= @rent.tool.user.first_name %> - apto: <%= @rent.tool.user.apartment %></p>
-      <div>
+    <div class="content-wrap mt-5">
+      <div class="list-header">
+        <h3 class = "text-center"><%=@rent.tool.name %></h3>
+      </div>
+      <div class="list-tools p-3">
+        <p><strong>Período:</strong> <%= @rent.date_start.strftime('%d/%m/%Y')%> até <%=@rent.date_end.strftime('%d/%m/%Y')%></p>
+        <p><strong>Pertence a:</strong> <%= @rent.tool.user.first_name %> - apto: <%= @rent.tool.user.apartment %></p>
+        <p><strong>Telefone:</strong> <%= @rent.tool.user.phone_number.present? ? @rent.tool.user.phone_number : "Não informado" %></p>
+        <p><strong>Alugado por:</strong> <%= @rent.user.first_name %> - apto: <%= @rent.user.apartment %>
+        <p><strong>Telefone:</strong> <%= @rent.tool.user.phone_number.present? ? @rent.tool.user.phone_number : "Não informado" %></p>
+      </div>
+      <% if current_user == @rent.user %>
         <%= link_to "Alterar reserva", edit_rent_path(@rent), class: "btn btn-ghost esquerda" %>
         <%= link_to "Cancelar reserva", rent_path(@rent), class: "btn btn-ghost direita", data: {turbo_method: :delete, turbo_confirm: "Você confirma essa ação?" }%>
-      </div>
+        <%= link_to "Voltar", profile_path(current_user), class: "btn btn-ghost esquerda" %>
+      <% else %>
+        <%= link_to "Voltar", tool_path(@rent.tool), class: "btn btn-ghost esquerda" %>
+      <% end %>
     </div>
   </div>
