@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show]
 
   resources :tools do
-    resources :rents, only: %i[new create]
+    resources :rents, only: %i[create]
   end
 
   resources :rents, only: %i[edit update show destroy]

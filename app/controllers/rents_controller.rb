@@ -1,9 +1,9 @@
 class RentsController < ApplicationController
-  def new
-    @rent = Rent.new
-    @tool = Tool.find(params[:tool_id])
-    authorize @rent
-  end
+  # def new
+  #   @rent = Rent.new
+  #   @tool = Tool.find(params[:tool_id])
+  #   authorize @rent
+  # end
 
   def create
     @rent = Rent.new(rent_params)
