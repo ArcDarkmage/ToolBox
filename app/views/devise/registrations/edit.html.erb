@@ -1,6 +1,6 @@
 <div class="cadastrese">
 
-<h2>Editar <%= resource_name.to_s.humanize %></h2>
+<h2 class="text-center">Editar Usuário</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -41,12 +41,15 @@
                 required: false,
                 label:"Confirme a senha",
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :photo, as: :file,
+                label:"Foto" %>
     <%= f.input :current_password,
                 hint: "Nós precisamos da sua senha atual para confirmar a mudança",
+                hint_html: {class: 'color-label' },
                 required: true,
-                label:"Senha atual",
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :photo, as: :file %>
+                label: "Senha atual",
+                input_html: { autocomplete: "current-password"},
+                label_html: {class: 'color-label'}%>
   </div>
 
   <div class="form-actions">
@@ -58,6 +61,4 @@
 <p>Insatisfeito? <%= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Confirmar cancelamento?" }, method: :delete %></p>
 </div>
 <!--<%= link_to "Voltar", :back %>-->
-
-
 </div>
