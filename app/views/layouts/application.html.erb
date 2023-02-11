@@ -39,7 +39,7 @@
                     </li>
                     <li class="nav-item dropdown" style="cursor: pointer">
                         <% if current_user.photo.attached? %>
-                          <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle" , id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+                          <%= cl_image_tag(current_user.photo.key, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle" , id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
                         <% else %>
                           <%= image_tag "perfil.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                         <% end %>
