@@ -1,11 +1,11 @@
 
 <div class="card-trip">
 
-  <div class="card-trip">
+  <div class="card-trip " >
     <% if tool.photo.attached? %>
-      <%= cl_image_tag(tool.photo.key) %>
+      <%= cl_image_tag(tool.photo.key, height: 200, crop: :fill) %>
     <% else %>
-      <%= image_tag "tools.png", alt: "ferramenta" %>
+      <%= image_tag "tools.png", style:"height: 200px; width: 200px;", class: "mx-auto d-block", alt: "ferramenta" %>
     <% end %>
   </div>
   <div class="card-trip-infos">

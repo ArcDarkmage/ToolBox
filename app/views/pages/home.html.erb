@@ -1,16 +1,32 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/fotos-gratis/conjunto-de-ferramentas-manual-definido-no-piso-de-madeira_1150-15367.jpg?w=1480&t=st=1675304443~exp=1675305043~hmac=c70bd7ce524913e8a6f5b9d90dbb2b07187ac05814be95be332d095397e0137b);">
-  <div class="container">
-  <% if current_user %>
-    <h1>Quer emprestar uma ferramenta?</h1>
-    <p>Clique no link abaixo:</p>
-     <%= link_to "Cadastrar ferramenta", new_tool_path, class: "btn btn-ghost" %>
-    <% else %>
-     <h1>Encontre a ferramenta que você precisa!</h1>
-     <p>Ou empreste as suas ferramentas.</p>
-      <%= link_to "Cadastre-se", new_user_registration_path, class: "btn btn-ghost" %>
-    <% end %>
+<% if current_user %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/free-photo/set-tools-tool-kit-isolated_1303-20319.jpg?w=1480&t=st=1676139593~exp=1676140193~hmac=1c791775aa1b4b5dd89173cd3e26cdd1863b6884d4ad924cd8f886cfcc083b86);">
+    <div class="container">
+    <% if current_user %>
+      <h1>Quer emprestar uma ferramenta?</h1>
+      <p>Clique no link abaixo:</p>
+      <%= link_to "Cadastrar ferramenta", new_tool_path, class: "btn btn-ghost" %>
+      <% else %>
+      <h1>Encontre a ferramenta que você precisa!</h1>
+      <p>Ou empreste as suas ferramentas.</p>
+        <%= link_to "Cadastre-se", new_user_registration_path, class: "btn btn-ghost" %>
+      <% end %>
+    </div>
   </div>
-</div>
+<% else %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/fotos-gratis/conjunto-de-ferramentas-manual-definido-no-piso-de-madeira_1150-15367.jpg?w=1480&t=st=1675304443~exp=1675305043~hmac=c70bd7ce524913e8a6f5b9d90dbb2b07187ac05814be95be332d095397e0137b);">
+    <div class="container">
+    <% if current_user %>
+      <h1>Quer emprestar uma ferramenta?</h1>
+      <p>Clique no link abaixo:</p>
+      <%= link_to "Cadastrar ferramenta", new_tool_path, class: "btn btn-ghost" %>
+      <% else %>
+      <h1>Encontre a ferramenta que você precisa!</h1>
+      <p>Ou empreste as suas ferramentas.</p>
+        <%= link_to "Cadastre-se", new_user_registration_path, class: "btn btn-ghost" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 
 <p class="recentes">Ferramentas recentes</p>
 
