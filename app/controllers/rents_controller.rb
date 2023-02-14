@@ -10,7 +10,7 @@ class RentsController < ApplicationController
     if @rent.save
       redirect_to profile_path(current_user), notice: "Ferramenta alugada com sucesso."
     else
-      render :new, status: :unprocessable_entity
+      render 'tools/show', status: :unprocessable_entity
     end
   end
 
