@@ -17,7 +17,7 @@
         <p><%= tool.details %></p>
       </div>
       <div class="price">
-        <p class="card-trip-pricing"><%="R$ #{tool.price_cents / 100},00 /dia"%></p>
+        <p class="card-trip-pricing"><%="R$ #{sprintf('%.2f',(tool.price_cents / 100.00))}/dia "%></p>
       </div>
     </div>
       <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />-->

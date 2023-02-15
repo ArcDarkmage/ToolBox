@@ -28,7 +28,7 @@
           <% if current_user == @tool.user %>
             <%= render 'calendario', tool: @tool %>
           <% else %>
-            <%= render 'new_rent', tool: @tool, rent: @rent %>
+            <%= render 'tools/new_rent', tool: @tool, rent: @rent %>
           <% end %>
         </div>
         <%  %>
